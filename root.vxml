@@ -1,0 +1,38 @@
+<vxml version="2.1" xml:lang="es-ES">
+
+    <catch event="exit_español">
+        <prompt>Muchas gracias por haber usado nuestro servicio. Hasta la proxima.</prompt>
+        <exit/>
+    </catch>
+
+    <catch event="help_salir">
+        <prompt> Si quiere hacer otra consulta diga: realizar otra consulta.
+                Tambien puede dejar una sugerencia o salir de la aplicacion.
+        </prompt>
+    </catch>
+
+    <catch event="help_asignaturas">
+        <prompt>
+Ejemplo de asignaturas son: Algebra Lineal y Estructuras Matematicas,
+Calculo, Fundamentos de Programacion, Fundamentos del Software, Fundamentos Fisicos y Tecnologicos;
+        </prompt>
+    </catch>
+
+    <catch event="help_siglas">
+        <prompt>
+            Diga por ejemplo: CA, FP, FS, FFT.
+        </prompt>
+    </catch>
+
+    <catch event="exit_english">
+        <prompt xml:lang="en-US">Thanks for using our service. We look forward to seeing you again.</prompt>
+        <exit/>
+    </catch>
+
+    <catch event="help_exit">
+        <prompt xml:lang="en-US"> If you would like to make another query just say:
+        another query. You could also leave some feedback or exit the app.
+        </prompt>
+    </catch>
+
+</vxml>
