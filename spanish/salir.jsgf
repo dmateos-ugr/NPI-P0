@@ -2,4 +2,4 @@
 
 grammar salir;
 
-public <salir> = consultar otra entrada | sugerencias | salir | no;
+public <salir> = consultar otro examen | sugerencias | salir | no;

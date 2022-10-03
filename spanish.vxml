@@ -9,13 +9,15 @@
 	<var name="nombre"/>
 	<var name="fecha" />
 
-	<form id="comienzo">
-
+    <form id="intro">
 		<block>
 			<prompt bargein="false"> Bienvenido al servicio de informacion de examenes de la universidad</prompt>
 			<break time="500ms"/>
+            <goto next="#comienzo"/>
 		</block>
+    </form>
 
+	<form id="comienzo">
 		<field name="asignatura">
 			<grammar src="spanish/page0Asign.jsgf"/>
 			<prompt count="1"> Diga el nombre de alguna asignatura </prompt>
@@ -27,10 +29,36 @@
 				<throw event="help_asignaturas"/>
 			</noinput>
             <filled>
-                <prompt> Tendrás el examen el <emphasis level="strong"> <value expr="nombreAfecha(asignatura)"/> </emphasis> </prompt>
-                <goto next="#terminando"/>
+                <assign name="nombre" expr="asignatura"/>
             </filled>
 		</field>
+
+        <field name="confirmar_asignatura" cond="0.6 > asignatura$.confidence ">
+			<grammar src="spanish/confirmacion.jsgf"/>
+			<prompt>
+                La asignatura a la que se refiere es <value expr="asignatura"/>?
+			</prompt>
+			<filled>
+				<if cond="confirmar_asignatura=='si' &amp;&amp; confirmar_asignatura$.confidence &gt; 0.6">
+					Muy bien. Continuemos.
+				<else/>
+					De acuerdo. Le preguntare de nuevo.
+					<clear namelist="asignatura nombre"/>
+                    <goto next="#asignatura"/>
+				</if>
+			</filled>
+		</field>
+
+        <block>
+            <prompt>
+                Tienes el examen el
+                <emphasis level="strong">
+                    <value expr="nombreAfecha(nombre)"/>
+                </emphasis>
+            </prompt>
+            <break time="500ms"/>
+            <goto next="#terminando"/>
+        </block>
     </form>
 
     <form id="terminando">
@@ -42,7 +70,7 @@
 			<filled>
 				<if cond="opcion=='consultar otro examen' &amp;&amp; opcion$.confidence &gt; 0.5">
 					<clear namelist="nombre fecha"/>
-					<goto next="#comienzo"/>
+					<goto next="#asignatura"/>
 				<elseif cond="opcion=='sugerencias' &amp;&amp; opcion$.confidence &gt; 0.5"/>
 					<goto next="#sugerencias"/>
 				<elseif cond="opcion=='no' || opcion=='salir'"/>
