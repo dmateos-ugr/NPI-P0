@@ -14,7 +14,7 @@
     <catch event="help_asignaturas">
         <prompt>
 Ejemplo de asignaturas son: Algebra Lineal y Estructuras Matematicas,
-Calculo, Fundamentos de Programacion, Fundamentos del Software, Fundamentos Fisicos y Tecnologicos;
+Calculo, Fundamentos de Programacion...
         </prompt>
     </catch>
 
