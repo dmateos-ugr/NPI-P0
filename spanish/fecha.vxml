@@ -1,13 +1,13 @@
-<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+<vxml version="2.1" xml:lang="es-ES" application="../root.vxml">
 
 	<link event="help">
-		<grammar src="ayuda.jsgf"/>
+		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
-	<script src="scripts/conversiones.js"/>
+	<script src="../scripts/conversiones.js"/>
 
 	<form id="comienzo">
-		<grammar src="preguntarFecha.jsgf" type="application/x-jsgf"/>
+		<grammar src="grammars/preguntarFecha.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
 			<prompt>En que puedo ayudarle?</prompt>
 			<help>
@@ -24,7 +24,7 @@
 		</initial>
 
 		<field name="fecha">
-			<grammar src="fecha.jsgf"/>
+			<grammar src="grammars/fecha.jsgf"/>
 			<prompt count="1"> Diga la fecha de la que quiera saber los examenes</prompt>
 			<prompt count="3"> Diga ayuda para obtener mas informacion </prompt>
 			<help>
@@ -44,7 +44,7 @@
 		</field>
 
 		<field name="confirmar_fecha" cond="0.7 > fecha$.confidence">
-			<grammar src="confirmacion.jsgf"/>
+			<grammar src="grammars/confirmacion.jsgf"/>
 			<prompt>
 				La fecha a la que se refiere es <value expr="fecha"/>?
 			</prompt>
