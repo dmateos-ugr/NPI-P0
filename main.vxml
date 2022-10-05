@@ -13,11 +13,11 @@
 
     <prompt>Para elegir español pulse 1 o diga <emp level="strong">español</emp></prompt>
     <prompt xml:lang="en-US">To choose English, press 2 or say <emp level="strong">English</emp></prompt>
-      <choice dtmf="1" next="spanish.vxml">
+      <choice dtmf="1" next="spanish/spanish.vxml">
         Español
       </choice>
 
-      <choice dtmf="2" next="english.vxml">
+      <choice dtmf="2" next="english/english.vxml">
         <grammar src="english/chooseLangEnglish.jsgf"/>
           Ingles
       </choice>

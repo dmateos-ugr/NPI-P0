@@ -2,7 +2,7 @@
 
 grammar preguntarSiglas;
 
-public <preguntarSiglas> = [<preguntar>] <siglas> {this.siglas=$siglas};
+public <preguntarSiglas> = [<deseo>] [<preguntar>] <siglas> {this.siglas=$siglas};
 
 public <siglas> = A L E M | 
 C A | F P | F S | F F T | 
@@ -13,5 +13,6 @@ V C | P T C | T I C | S S |
 C P D | S E | T R | I I | 
 T E | D B A;
 
+<deseo> = Quiero saber | Me gustaria saber | Dime | Digame;
 <preguntar> = Que dia es el examen de | Cual es la fecha de | Que fecha tiene el examen de |
 Cuando es el examen de;

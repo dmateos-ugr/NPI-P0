@@ -1,7 +1,7 @@
 <vxml version="2.1" xml:lang="es-ES" application="root.vxml">
 
 	<link event="help">
-		<grammar src="spanish/ayuda.jsgf"/>
+		<grammar src="ayuda.jsgf"/>
 	</link>
 
 	<form id="intro">
@@ -23,7 +23,7 @@
 
 	<form id="terminando">
 		<field name="opcion">
-			<grammar src="spanish/salir.jsgf"/>
+			<grammar src="salir.jsgf"/>
 			<prompt count="1"> Desea consultar algun otro examen o dejar una sugerencia? </prompt>
 			<prompt count="2"> Diga consultar otro examen o sugerencias </prompt>
 			<prompt count="3"> Por favor, diga ayuda para saber las opciones disponibles. </prompt>

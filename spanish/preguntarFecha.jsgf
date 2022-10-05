@@ -2,7 +2,7 @@
 
 grammar preguntarFecha;
 
-public <preguntarFecha> = [<preguntar>] <dia> {this.fecha=$dia};
+public <preguntarFecha> = [<deseo>] [si] [<preguntar>] <dia> {this.fecha=$dia};
 
 <dia> = <numero> de enero;
 
@@ -10,5 +10,6 @@ public <preguntarFecha> = [<preguntar>] <dia> {this.fecha=$dia};
           11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 |
           21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31;
 
+<deseo> = Quiero saber | Me gustaria saber | Dime | Digame;
 <preguntar> = Que examenes hay el | Cuales son los examenes del |
-       Dime los examenes del;
+       Los examenes del | Hay algun examen el | Tengo algun examen el;

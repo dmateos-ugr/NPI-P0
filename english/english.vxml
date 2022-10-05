@@ -1,0 +1,59 @@
+<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+
+	<link event="help">
+		<grammar src="ayuda.jsgf"/>
+	</link>
+
+	<form id="intro">
+		<block>
+			<prompt bargein="false"> Welcome to the university's exams information service</prompt>
+			<break time="200ms"/>
+			<prompt bargein="true"> We'll help you find the date of the exam that you wish to know.</prompt>
+			<break time="200ms"/>
+			<goto next="#menu"/>
+		</block>
+	</form>
+
+	<menu id="menu">
+		<prompt>Choose an option between <enumerate/>.</prompt>
+		<choice next="asignatura.vxml">Courses</choice>
+		<choice next="siglas.vxml">Acronym</choice>
+		<choice next="fecha.vxml">Date</choice>
+	</menu>
+
+	<form id="terminando">
+		<field name="opcion">
+			<grammar src="salir.jsgf"/>
+			<prompt count="1"> Do you wish to know about any other exam or leave a suggestion? </prompt>
+			<prompt count="2"> Say "know about exam" or "suggestions" </prompt>
+			<prompt count="3"> Please, say help to know the available options. </prompt>
+			<filled>
+				<if cond="opcion=='consultar otro examen' &amp;&amp; opcion$.confidence &gt; 0.5">
+					<clear namelist="asignatura"/>
+					<goto next="#menu"/>
+				<elseif cond="opcion=='dejar una sugerencia' &amp;&amp; opcion$.confidence &gt; 0.5"/>
+					<goto next="#sugerencias"/>
+				<elseif cond="opcion=='no' || opcion=='salir'"/>
+					<throw event="exit_español"/>
+				<else/>
+					<prompt> I didn't undertstand. Can you repeat? </prompt>
+					<clear namelist="opcion"/>
+				</if>
+			</filled>
+			<help>
+				<throw event="help_salir"/>
+			</help>
+			<noinput>
+				I didn't heard. Remember. <throw event="exit_español"/>
+			</noinput>
+		</field>
+	</form>
+
+	<form id="sugerencias">
+		<record name="sugerencia" beep="true" maxtime="10s"	finalsilence="4000ms" dtmfterm="true" type="audio/x-wav">
+			<prompt> Record your message after the beep. </prompt>
+			<noinput> I didn't heard anything, try again. </noinput>
+		</record>
+		<throw event="exit_español"/>
+	</form>
+</vxml>

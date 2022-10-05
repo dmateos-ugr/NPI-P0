@@ -1,0 +1,76 @@
+<vxml version="2.1" xml:lang="en-US" application="root.vxml">
+
+	<link event="help">
+		<grammar src="ayuda.jsgf"/>
+	</link>
+
+	<script src="scripts/conversiones.js"/>
+
+	<form id="comienzo">
+		<grammar src="preguntarAsign.jsgf" type="application/x-jsgf"/>
+		<initial name="inicial">
+			<prompt>On what can I help you?</prompt>
+			<help>
+				<throw event="help_asignaturas_mixta"/>
+			</help>
+			<nomatch count="1">
+				Didn't understand. <throw event="help_asignaturas_mixta"/>
+			</nomatch>
+			<nomatch count="2">
+				I am sorry, I still don't understand.
+				<assign name="inicial" expr="true"/>
+				<reprompt/>
+			</nomatch>
+		</initial>
+
+		<field name="asignatura">
+			<grammar src="asign.jsgf"/>
+			<prompt count="1"> Say the name of the course or help to more information</prompt>
+			<prompt count="3"> Say help to get more information </prompt>
+			<help>
+				<throw event="help_asignaturas"/>
+			</help>
+			<noinput>
+				I am sorry, I didn't heard anything. Remember. <throw event="help_asignaturas"/>
+			</noinput>
+			<nomatch>
+				I am sorry, I didn't understand untill the end. Can you repeat?
+			</nomatch>
+			<nomatch count="2">
+				I didn't understand. The courses should be from the first semester of computer science.
+				<reprompt/>
+			</nomatch>
+		</field>
+
+		<field name="confirmar_asignatura" cond="0.7 > asignatura$.confidence">
+			<grammar src="confirmacion.jsgf"/>
+			<prompt>
+				The course that you're mentioning is <value expr="asignatura"/>?
+			</prompt>
+			<filled>
+				<if cond="confirmar_asignatura=='si' &amp;&amp; confirmar_asignatura$.confidence &gt; 0.6">
+					Well done. Let's continue.
+				<else/>
+					Alright. I'll ask you again.
+					<clear namelist="asignatura"/>
+					<goto next="#comienzo"/>
+				</if>
+			</filled>
+		</field>
+
+		<block bargein="false">
+			<prompt>
+				The exam of
+				<emphasis level="strong">
+					<value expr="asignatura"/>
+				</emphasis>
+				is on
+				<emphasis level="strong">
+					<value expr="nombreAfecha(asignatura)"/>
+				</emphasis>
+			</prompt>
+			<break time="500ms"/>
+			<goto next="spanish.vxml#terminando"/>
+		</block>
+	</form>
+</vxml>

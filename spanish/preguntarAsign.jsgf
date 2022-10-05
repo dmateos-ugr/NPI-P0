@@ -2,7 +2,7 @@
 
 grammar preguntarAsign;
 
-public <preguntarAsign> = [<preguntar>] <asign> {this.asignatura=$asign};
+public <preguntarAsign> = [<deseo>] [<preguntar>] <asign> {this.asignatura=$asign};
 
 <asign> = Algebra Lineal y Estructuras Matematicas | 
 Calculo | Fundamentos de Programacion | Fundamentos del Software | Fundamentos Fisicos y Tecnologicos | 
@@ -13,5 +13,6 @@ Vision por Computador | Programacion Tecnica y Cientifica | Teoria de la Informa
 Centros de Procesamiento de Datos | Sistemas Empotrados | Tecnologias de Red | Informatica Industrial | 
 Tecnologias Emergentes | Desarrollo Basado en Agentes;
 
+<deseo> = Quiero saber | Me gustaria saber | Dime | Digame;
 <preguntar> = Que dia es el examen de | Cual es la fecha de | Que fecha tiene el examen de |
 Cuando es el examen de;

@@ -1,8 +1,8 @@
 #JSGF V1.0;
 
-grammar page0Siglas;
+grammar siglas;
 
-public <page0Siglas> = A L E M | 
+public <siglas> = A L E M | 
 C A | F P | F S | F F T | 
 E C | E D | P D O O | S C D | 
 S O | D D S I | F R | I G | 
