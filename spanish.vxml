@@ -4,88 +4,33 @@
 		<grammar src="spanish/ayuda.jsgf"/>
 	</link>
 
-	<script src="scripts/conversiones.js"/>
-
-	<var name="nombre" expr="'none'"/>
-	<var name="fecha" expr="'none'"/>
-
-    <form id="intro">
+	<form id="intro">
 		<block>
 			<prompt bargein="false"> Bienvenido al servicio de informacion de examenes de la universidad</prompt>
 			<break time="200ms"/>
 			<prompt bargein="true"> Le ayudaremos a encontrar la fecha del examen que deseas.</prompt>
 			<break time="200ms"/>
-            <goto next="#comienzo"/>
+			<goto next="#menu"/>
 		</block>
-    </form>
+	</form>
 
-	<form id="comienzo">
-		<field name="asignatura">
-			<grammar src="spanish/page0Asign.jsgf"/>
-			<prompt count="1"> Diga el nombre de la asignatura o ayuda para más información</prompt>
-			<prompt count="3"> Diga ayuda para obtener mas informacion </prompt>
-			<help>
-				<throw event="help_asignaturas"/>
-			</help>
-			<noinput>
-				Lo siento, no escuché nada. Recuerde. <throw event="help_asignaturas"/>
-			</noinput>
-            <nomatch>
-                Lo siento, no terminé de entender. Podrías repetir?
-            </nomatch>
-            <nomatch count="2">
-                No entendí. Las asignaturas deben ser de primero de informática.
-                <reprompt/>
-            </nomatch>
-            <filled>
-                <assign name="nombre" expr="asignatura"/>
-            </filled>
-		</field>
+	<menu id="menu">
+		<prompt>Elija una opcion entre <enumerate/>.</prompt>
+		<choice next="asignatura.vxml">Asignatura</choice>
+		<choice next="siglas.vxml">Siglas</choice>
+		<choice next="fecha.vxml">Fecha</choice>
+	</menu>
 
-        <field name="confirmar_asignatura" cond="0.6 > asignatura$.confidence ">
-			<grammar src="spanish/confirmacion.jsgf"/>
-			<prompt>
-                La asignatura a la que se refiere es <value expr="asignatura"/>?
-			</prompt>
-			<filled>
-				<if cond="confirmar_asignatura=='si' &amp;&amp; confirmar_asignatura$.confidence &gt; 0.6">
-					Muy bien. Continuemos.
-				<else/>
-					De acuerdo. Le preguntare de nuevo.
-					<clear namelist="asignatura nombre fecha"/>
-                    <goto next="#comienzo"/>
-				</if>
-			</filled>
-		</field>
-
-        <block bargein="false">
-                <if cond="nombre!='none'">
-                    <prompt>
-                            Tienes el examen el
-                            <emphasis level="strong">
-                                <value expr="nombreAfecha(nombre)"/>
-                            </emphasis>
-                    </prompt>
-                <else/>
-                    Debió de haber algún error, tendremos que volver a empezar.
-					<clear namelist="asignatura nombre fecha"/>
-                    <goto next="#comienzo"/>
-                </if>
-            <break time="500ms"/>
-            <goto next="#terminando"/>
-        </block>
-    </form>
-
-    <form id="terminando">
-        <field name="opcion">
+	<form id="terminando">
+		<field name="opcion">
 			<grammar src="spanish/salir.jsgf"/>
 			<prompt count="1"> Desea consultar algun otro examen o dejar una sugerencia? </prompt>
 			<prompt count="2"> Diga consultar otro examen o sugerencias </prompt>
 			<prompt count="3"> Por favor, diga ayuda para saber las opciones disponibles. </prompt>
 			<filled>
 				<if cond="opcion=='consultar otro examen' &amp;&amp; opcion$.confidence &gt; 0.5">
-					<clear namelist="nombre fecha asignatura"/>
-					<goto next="#comienzo"/>
+					<clear namelist="asignatura"/>
+					<goto next="#menu"/>
 				<elseif cond="opcion=='dejar una sugerencia' &amp;&amp; opcion$.confidence &gt; 0.5"/>
 					<goto next="#sugerencias"/>
 				<elseif cond="opcion=='no' || opcion=='salir'"/>
