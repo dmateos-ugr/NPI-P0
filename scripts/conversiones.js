@@ -38,9 +38,9 @@ function siglaAnombre(sigla){
     else if(sigla=="VC")
         nombre="Vision por Computador";
     else if(sigla=="PTC")
-        nombre="Programacion Tecnica y Cientelse ifica";
+        nombre="Programacion Tecnica y Cientifica";
     else if(sigla=="TIC")
-        nombre="Teoria de la Informacion y la Codelse ificacion";
+        nombre="Teoria de la Informacion y la Codificacion";
     else if(sigla=="SS")
         nombre="Simulacion de Sistemas";
     else if(sigla=="CPD")
@@ -98,9 +98,9 @@ function nombreAfecha(nombre){
         fecha="Miercoles, 19 de Enero";
     else if(nombre=="Vision por Computador")
         fecha="Miercoles, 12 de Enero";
-    else if(nombre=="Programacion Tecnica y Cientelse ifica")
+    else if(nombre=="Programacion Tecnica y Cientifica")
         fecha="Lunes, 17 de Enero";
-    else if(nombre=="Teoria de la Informacion y la Codelse ificacion")
+    else if(nombre=="Teoria de la Informacion y la Codificacion")
         fecha="Viernes, 21 de Enero";
     else if(nombre=="Simulacion de Sistemas")
         fecha="Viernes, 14 de Enero";
@@ -119,4 +119,29 @@ function nombreAfecha(nombre){
     else
         fecha="Asignatura desconocida: " + nombre;
     return fecha;
+}
+
+function fechaAnombre(fecha){
+    var nombre = "";
+    if(fecha=="12 de enero")
+        nombre="Estructura de computadores, Vision por Computador y Tecnologias de Red";
+    else if(fecha=="14 de enero")
+        nombre="Fundamentos Fisicos y Tecnologicos, Informatica Grafica y Simulacion de Sistemas";
+    else if(fecha=="17 de enero")
+        nombre="Programacion y Diseno Orientado a Objetos, Modelos de Computacion, Programacion Tecnica y Cientifica e Informatica Industrial";
+    else if(fecha=="18 de enero")
+        nombre="Fundamentos del Software";
+    else if(fecha=="19 de enero")
+        nombre="Sistemas Concurrentes y Distribuidos, Procesadores de Lenguajes y Sistemas Empotrados";
+    else if(fecha=="20 de enero")
+        nombre="Algebra Lineal y Estructuras Matematicas e Ingenieria de Servidores";
+    else if(fecha=="21 de enero")
+        nombre="Estructura de Datos, Teoria de la Informacion y la Codificacion y Tecnologias Emergentes";
+    else if(fecha=="24 de enero")
+        nombre="Calculo, Fundamentos de Redes, Nuevos Paradigmas de Interaccion, Centros de Procesamiento de Datos y Desarrollo Basado en Agentes";
+    else if(fecha=="25 de enero")
+        nombre="Sistemas Operativos";
+    else if(fecha=="26 de enero")
+        nombre="Fundamentos de Programacion y Diseno y Desarrollo de Sistemas de Informacion";
+    return nombre;
 }

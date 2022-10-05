@@ -6,7 +6,7 @@
     </catch>
 
     <catch event="help_salir">
-        <prompt> Si quiere hacer otra consulta diga: realizar otra consulta.
+        <prompt> Si quiere hacer otra consulta diga: consultar otro examen.
                 Tambien puede dejar una sugerencia o salir de la aplicacion.
         </prompt>
     </catch>
@@ -18,9 +18,33 @@ Calculo, Fundamentos de Programacion...
         </prompt>
     </catch>
 
+   <catch event="help_asignaturas_mixta">
+        <prompt>
+    Diga por ejemplo: Cuando es el examen de Algebra Lineal y Estructuras Matematicas
+        </prompt>
+    </catch>
+
     <catch event="help_siglas">
         <prompt>
             Diga por ejemplo: CA, FP, FS, FFT.
+        </prompt>
+    </catch>
+
+    <catch event="help_siglas_mixta">
+        <prompt>
+            Diga por ejemplo: cuando es el examen de S O
+        </prompt>
+    </catch>
+
+    <catch event="help_fechas">
+        <prompt>
+            Diga por ejemplo: 20 de enero.
+        </prompt>
+    </catch>
+
+    <catch event="help_fechas_mixta">
+        <prompt>
+            Diga por ejemplo: que examenes hay el 20 de enero.
         </prompt>
     </catch>
 
