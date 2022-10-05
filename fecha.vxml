@@ -1,0 +1,16 @@
+<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+
+	<link event="help">
+		<grammar src="spanish/ayuda.jsgf"/>
+	</link>
+
+	<script src="scripts/conversiones.js"/>
+
+	<form id="comienzo">
+		<block>
+			FALTA
+			<throw event="exit_español"/>
+		</block>
+	</form>
+
+</vxml>

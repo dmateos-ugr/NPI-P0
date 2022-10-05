@@ -1,0 +1,70 @@
+<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+
+	<link event="help">
+		<grammar src="spanish/ayuda.jsgf"/>
+	</link>
+
+	<script src="scripts/conversiones.js"/>
+
+	<form id="comienzo">
+		<grammar src="spanish/preguntarSiglas.jsgf" type="application/x-jsgf"/>
+		<initial name="inicial">
+			<prompt>En que puedo ayudarle?</prompt>
+			<nomatch count="1">
+				Por ejemplo, di cuando es el examen de F P.
+			</nomatch>
+			<nomatch count="2">
+				Lo siento, sigo sin entender.
+				<assign name="inicial" expr="true"/>
+				<reprompt/>
+			</nomatch>
+		</initial>
+
+		<field name="siglas">
+			<grammar src="spanish/page0Siglas.jsgf"/>
+			<prompt count="1"> Diga las siglas de la asignatura o ayuda para más información</prompt>
+			<prompt count="3"> Diga ayuda para obtener mas informacion </prompt>
+			<help>
+				<throw event="help_siglas"/>
+			</help>
+			<noinput>
+				Lo siento, no escuché nada. Recuerde. <throw event="help_siglas"/>
+			</noinput>
+			<nomatch>
+				Lo siento, no terminé de entender. Podrías repetir?
+			</nomatch>
+			<nomatch count="2">
+				No entendí. Las asignaturas deben ser de primero de informática.
+				<reprompt/>
+			</nomatch>
+		</field>
+
+		<!-- FALTA: confirmacion de siglas -->
+
+		<block bargein="false">
+			<assign name="asignatura" expr="siglaAnombre(siglas)"/>
+			<prompt>
+				Has dicho las siglas
+				<say-as interpret-as="letters">
+					<value expr="siglas"/>
+				</say-as>
+				, que se corresponden con la asignatura
+				<emphasis level="strong">
+					<value expr="asignatura"/>
+				</emphasis>
+				.
+				El examen de
+				<emphasis level="strong">
+					<value expr="asignatura"/>
+				</emphasis>
+				es el
+				<emphasis level="strong">
+					<value expr="nombreAfecha(asignatura)"/>
+				</emphasis>
+			</prompt>
+			<break time="500ms"/>
+			<goto next="spanish.vxml#terminando"/>
+		</block>
+	</form>
+
+</vxml>
