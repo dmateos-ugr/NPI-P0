@@ -34,10 +34,10 @@
 				I am sorry, I didn't heard anything. Remember. <throw event="help_fechas"/>
 			</noinput>
 			<nomatch>
-				Lo siento, no terminé de entender. Podrías repetir?
+				I am sorry, I didn't understand untill the end. Can you repeat?
 			</nomatch>
 			<nomatch count="2">
-				No entendí. La fecha debe ser un dia de enero
+				I didn't understand. The date should be from a day of January
 				<reprompt/>
 			</nomatch>
 
@@ -46,13 +46,13 @@
 		<field name="confirmar_fecha" cond="0.7 > fecha$.confidence">
 			<grammar src="confirmacion.jsgf"/>
 			<prompt>
-				La fecha a la que se refiere es <value expr="fecha"/>?
+				The date that you're mentioning is <value expr="fecha"/>?
 			</prompt>
 			<filled>
 				<if cond="confirmar_fecha=='si' &amp;&amp; confirmar_fecha$.confidence &gt; 0.7">
-					Muy bien. Continuemos.
+					Well done. Let's continue.
 				<else/>
-					De acuerdo. Le preguntare de nuevo.
+					Alright. I'll ask you again.
 					<clear namelist="fecha"/>
 					<goto next="#comienzo"/>
 				</if>
@@ -62,19 +62,20 @@
 		<block bargein="false">
 			<assign name="asignaturas" expr="fechaAnombre(fecha)"/>
 			<prompt>
-				El dia
+				The day
 				<emphasis level="strong">
 					<value expr="fecha"/>
 				</emphasis>
 			</prompt>
 			<if cond="asignaturas == ''">
-				<prompt>no hay ningun examen.</prompt>
+				<prompt>has no exam.</prompt>
 			<else/>
 				<prompt>
-					son los examenes de
+					are the
 					<emphasis level="strong">
 						<value expr="asignaturas"/>
 					</emphasis>
+					exams
 				</prompt>
 			</if>
 			<break time="500ms"/>

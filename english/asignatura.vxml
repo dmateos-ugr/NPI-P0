@@ -14,7 +14,7 @@
 				<throw event="help_asignaturas_mixta"/>
 			</help>
 			<nomatch count="1">
-				Didn't understand. <throw event="help_asignaturas_mixta"/>
+				I didn't understand. <throw event="help_asignaturas_mixta"/>
 			</nomatch>
 			<nomatch count="2">
 				I am sorry, I still don't understand.
