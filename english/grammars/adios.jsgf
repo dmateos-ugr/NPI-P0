@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar adios;
+
+public <adios> = goodbye | bye | exit | see you later [alligator] | see you soon;

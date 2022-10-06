@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar adios;
+
+public <adios> = salir | hasta luego | no quiero | al final nada | me voy | adios | xao | tchau;

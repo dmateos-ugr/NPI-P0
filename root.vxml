@@ -1,6 +1,6 @@
 <vxml version="2.1" xml:lang="es-ES">
 
-    <catch event="exit_español">
+    <catch event="exit_espanol">
         <prompt>Muchas gracias por haber usado nuestro servicio. Hasta la proxima.</prompt>
         <exit/>
     </catch>

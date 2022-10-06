@@ -6,6 +6,18 @@
 
 	<script src="../scripts/conversiones.js"/>
 
+    <link event="exit_english">
+        <grammar src="grammars/adios.jsgf"/>
+    </link>
+
+    <link event="cambiar">
+        <grammar src="grammars/cambiar.jsgf"/>
+    </link>
+
+    <catch event="cambiar">
+        <goto next="../main.vxml#idioma"/>
+    </catch>
+
 	<form id="comienzo">
 		<grammar src="grammars/preguntarFecha.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
@@ -49,7 +61,7 @@
 				The date that you're mentioning is <value expr="fecha"/>?
 			</prompt>
 			<filled>
-				<if cond="confirmar_fecha=='yes' &amp;&amp; confirmar_fecha$.confidence &gt; 0.7">
+				<if cond="confirmar_fecha$.confidence &gt; 0.6">
 					Well done. Let's continue.
 				<else/>
 					Alright. I'll ask you again.

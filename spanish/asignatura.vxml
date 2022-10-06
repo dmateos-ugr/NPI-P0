@@ -6,6 +6,18 @@
 
 	<script src="../scripts/conversiones.js"/>
 
+    <link event="exit_espanol">
+        <grammar src="grammars/adios.jsgf"/>
+    </link>
+
+    <link event="cambiar">
+        <grammar src="grammars/cambiar.jsgf"/>
+    </link>
+
+    <catch event="cambiar">
+        <goto next="../main.vxml#idioma"/>
+    </catch>
+
 	<form id="comienzo">
 		<grammar src="grammars/preguntarAsign.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
@@ -48,7 +60,7 @@
 				La asignatura a la que se refiere es <value expr="asignatura"/>?
 			</prompt>
 			<filled>
-				<if cond="confirmar_asignatura=='si' &amp;&amp; confirmar_asignatura$.confidence &gt; 0.7">
+				<if cond="confirmar_asignatura$.confidence &gt; 0.6">
 					Muy bien. Continuemos.
 				<else/>
 					De acuerdo. Le preguntare de nuevo.

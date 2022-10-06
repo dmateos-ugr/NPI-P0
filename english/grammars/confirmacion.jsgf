@@ -2,4 +2,4 @@
 
 grammar confirmacion;
 
-public <confirmacion> = yes | no;
+public <confirmacion> = yes [indeed] | indeed | agree | okay | sure | ok | true | correct | affirmative | roger that | great | perfect |  maybe;

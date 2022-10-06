@@ -5,21 +5,27 @@
     <exit/>
   </catch>
 
-  <menu>
-    <property name="bargein" value="false"/>
-    <prompt><audio src="audio/intro.wav"/></prompt>
-    <prompt><value expr="bienvenido()"/> . Bienvenido al consejo de <emphasis> Estudiantes </emphasis></prompt>
-    <prompt xml:lang="en-US"><value expr="welcome()"/> . Welcome to the <emphasis> Students </emphasis> helper </prompt>
+    <form id="intro" >
+        <block>
+        <property name="bargein" value="false"/>
+        <prompt><audio src="audio/intro.wav"/></prompt>
+        <prompt><value expr="bienvenido()"/> . Bienvenido al consejo de <emphasis> Estudiantes </emphasis></prompt>º
+        <prompt xml:lang="en-US"><value expr="welcome()"/> . Welcome to the <emphasis> Students </emphasis> advisor </prompt>
+		<break time="100ms"/>
+        <goto next="#idioma"/>
+        </block>
+    </form>
 
-    <prompt>Para elegir español pulse 1 o diga <emp level="strong">español</emp></prompt>
-    <prompt xml:lang="en-US">To choose English, press 2 or say <emp level="strong">English</emp></prompt>
-      <choice dtmf="1" next="spanish/spanish.vxml">
+    <menu id="idioma">
+        <prompt>Para elegir español pulse 1 o diga <emp level="strong">español</emp></prompt>
+        <prompt xml:lang="en-US">To choose English, press 2 or say <emp level="strong">English</emp></prompt>
+        <choice dtmf="1" next="spanish/spanish.vxml">
         Español
-      </choice>
+        </choice>
 
-      <choice dtmf="2" next="english/english.vxml">
+        <choice dtmf="2" next="english/english.vxml">
         <grammar src="english/grammars/chooseLangEnglish.jsgf"/>
-          Ingles
-      </choice>
-  </menu>
+        Ingles
+        </choice>
+    </menu>
 </vxml>

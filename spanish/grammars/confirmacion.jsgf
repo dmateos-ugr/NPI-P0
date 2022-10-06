@@ -2,4 +2,4 @@
 
 grammar confirmacion;
 
-public <confirmacion> = si | no;
+public <confirmacion> = [creo que] si | vale [si] | okay | ok | hoc | afirmativo | correcto | es cierto | estoy de acuerdo | tiene razon | puede ser;

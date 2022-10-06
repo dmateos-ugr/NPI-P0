@@ -4,10 +4,26 @@
 		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
+    <link event="exit_english">
+        <grammar src="grammars/adios.jsgf"/>
+    </link>
+
+    <link event="cambiar">
+        <grammar src="grammars/cambiar.jsgf"/>
+    </link>
+
+    <catch event="cambiar">
+        <goto next="../main.vxml#idioma"/>
+    </catch>
+
 	<form id="intro">
 		<block>
 			<prompt bargein="true"> We'll help you find the date of the exam that you wish to know.</prompt>
-			<break time="200ms"/>
+			<break time="100ms"/>
+            <prompt>
+            If at any point you would like to change language,
+            say <emphasis> change language </emphasis>
+            </prompt>
 			<goto next="#menu"/>
 		</block>
 	</form>
@@ -17,7 +33,6 @@
 			To search by <value expr="_prompt"/>, say <value expr="_prompt"/>
 			or press <value expr="_dtmf"/>.
 		</enumerate>
-		<prompt>Choose an option between <enumerate/>.</prompt>
 		<choice dtmf="1" next="asignatura.vxml">Courses</choice>
 		<choice dtmf="2" next="siglas.vxml">Acronym</choice>
 		<choice dtmf="3" next="fecha.vxml">Date</choice>

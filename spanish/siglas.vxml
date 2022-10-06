@@ -6,6 +6,19 @@
 
 	<script src="../scripts/conversiones.js"/>
 
+    <link event="exit_espanol">
+        <grammar src="grammars/adios.jsgf"/>
+    </link>
+
+    <link event="cambiar">
+        <grammar src="grammars/cambiar.jsgf"/>
+    </link>
+
+    <catch event="cambiar">
+        <goto next="../main.vxml#idioma"/>
+    </catch>
+
+
 	<form id="comienzo">
 		<grammar src="grammars/preguntarSiglas.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
@@ -49,7 +62,7 @@
 				La asignatura a la que se refiere es <value expr="siglas"/>?
 			</prompt>
 			<filled>
-				<if cond="confirmar_siglas=='si' &amp;&amp; confirmar_siglas$.confidence &gt; 0.6">
+				<if cond="confirmar_siglas$.confidence &gt; 0.6">
 					Muy bien. Continuemos.
 				<else/>
 					De acuerdo. Le preguntare de nuevo.

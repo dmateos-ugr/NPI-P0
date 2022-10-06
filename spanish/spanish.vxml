@@ -4,10 +4,28 @@
 		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
+    <link event="exit_espanol">
+        <grammar src="grammars/adios.jsgf"/>
+    </link>
+
+    <link event="cambiar">
+        <grammar src="grammars/cambiar.jsgf"/>
+    </link>
+
+    <catch event="cambiar">
+        <goto next="../main.vxml#idioma"/>
+    </catch>
+
+
 	<form id="intro">
 		<block>
 			<prompt bargein="true"> Le ayudaremos a encontrar la fecha del examen que deseas.</prompt>
-			<break time="200ms"/>
+			<break time="100ms"/>
+            <prompt bargein="true">
+            Si en cualquier momento necesitas cambiar de idioma, di
+            <emphasis>cambiar de idioma</emphasis>
+            </prompt>
+			<break time="100ms"/>
 			<goto next="#menu"/>
 		</block>
 	</form>
@@ -35,7 +53,7 @@
 				<elseif cond="opcion=='dejar una sugerencia' &amp;&amp; opcion$.confidence &gt; 0.5"/>
 					<goto next="#sugerencias"/>
 				<elseif cond="opcion=='no' || opcion=='salir'"/>
-					<throw event="exit_español"/>
+					<throw event="exit_espanol"/>
 				<else/>
 					<prompt> No le he entendido. Podria repetirlo? </prompt>
 					<clear namelist="opcion"/>
