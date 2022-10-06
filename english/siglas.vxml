@@ -1,20 +1,20 @@
-<vxml version="2.1" xml:lang="en-US" application="root.vxml">
+<vxml version="2.1" xml:lang="en-US" application="../root.vxml">
 
 	<link event="help">
 		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
-	<script src="scripts/conversiones.js"/>
+	<script src="../scripts/conversiones.js"/>
 
 	<form id="comienzo">
-		<grammar src="preguntarSiglas.jsgf" type="application/x-jsgf"/>
+		<grammar src="grammars/preguntarSiglas.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
-			<prompt>On what can I help you?</prompt>
+			<prompt>What acronym do you want to search by?</prompt>
 			<help>
-				<throw event="help_siglas_mixta"/>
+				<throw event="help_siglas_mixta_ingles"/>
 			</help>
 			<nomatch count="1">
-				I didn't understand. <throw event="help_siglas_mixta"/>
+				I didn't understand. <throw event="help_siglas_mixta_ingles"/>
 			</nomatch>
 			<nomatch count="2">
 				I am sorry, I still don't understand.
@@ -25,13 +25,13 @@
 
 		<field name="siglas">
 			<grammar src="grammars/siglas.jsgf"/>
-			<prompt count="1"> Say the acronyms of the course or help to more information</prompt>
+			<prompt count="1"> Say the acronym of the course or help to more information</prompt>
 			<prompt count="3"> Say help to get more information </prompt>
 			<help>
-				<throw event="help_siglas"/>
+				<throw event="help_siglas_ingles"/>
 			</help>
 			<noinput>
-				I am sorry, I didn't heard anything. Remember. <throw event="help_siglas"/>
+				I am sorry, I didn't heard anything. Remember. <throw event="help_siglas_ingles"/>
 			</noinput>
 			<nomatch>
 				I am sorry, I didn't understand untill the end. Can you repeat?
@@ -60,7 +60,7 @@
 		</field>
 
 		<block bargein="false">
-			<assign name="asignatura" expr="siglaAnombre(siglas)"/>
+			<assign name="asignatura" expr="acronymToName(siglas)"/>
 			<prompt>
 				You've said the acronyms
 				<say-as interpret-as="letters">
@@ -78,11 +78,11 @@
 				</emphasis>
 				exam is on
 				<emphasis level="strong">
-					<value expr="nombreAfecha(asignatura)"/>
+					<value expr="nameToDate(asignatura)"/>
 				</emphasis>
 			</prompt>
 			<break time="500ms"/>
-			<goto next="spanish.vxml#terminando"/>
+			<goto next="english.vxml#terminando"/>
 		</block>
 	</form>
 

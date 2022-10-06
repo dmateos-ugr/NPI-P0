@@ -11,10 +11,24 @@
         </prompt>
     </catch>
 
+    <catch event="help_salir_ingles">
+        <prompt> 
+            If you wish to do any other query say: check another exam.
+            You can also leave a suggestion or exit the application.
+        </prompt>
+    </catch>
+
     <catch event="help_asignaturas">
         <prompt>
 Ejemplo de asignaturas son: Algebra Lineal y Estructuras Matematicas,
 Calculo, Fundamentos de Programacion...
+        </prompt>
+    </catch>
+
+     <catch event="help_asignaturas_ingles">
+        <prompt>
+Examples of courses are: Linear Algebra and Mathematical Structures
+Calculus, Fundamentals of Programming...
         </prompt>
     </catch>
 
@@ -24,9 +38,21 @@ Calculo, Fundamentos de Programacion...
         </prompt>
     </catch>
 
+    <catch event="help_asignaturas_mixta_ingles">
+        <prompt>
+    Say for example: When is the exam of Linear Algebra and Mathematical Structures
+        </prompt>
+    </catch>
+
     <catch event="help_siglas">
         <prompt>
             Diga por ejemplo: CA, FP, FS, FFT.
+        </prompt>
+    </catch>
+
+    <catch event="help_siglas_ingles">
+        <prompt>
+            Say for example: CA, FP, FS, FPT.
         </prompt>
     </catch>
 
@@ -36,7 +62,19 @@ Calculo, Fundamentos de Programacion...
         </prompt>
     </catch>
 
+    <catch event="help_siglas_mixta_ingles">
+        <prompt>
+           Say for example: when is the exam of O S
+        </prompt>
+    </catch>
+
     <catch event="help_fechas">
+        <prompt>
+            Diga por ejemplo: 20 de enero.
+        </prompt>
+    </catch>
+
+     <catch event="help_fechas_ingles">
         <prompt>
             Diga por ejemplo: 20 de enero.
         </prompt>
@@ -45,6 +83,12 @@ Calculo, Fundamentos de Programacion...
     <catch event="help_fechas_mixta">
         <prompt>
             Diga por ejemplo: que examenes hay el 20 de enero.
+        </prompt>
+    </catch>
+
+    <catch event="help_fechas_mixta_ingles">
+        <prompt>
+            Say for example: what exams are there the 20 of january
         </prompt>
     </catch>
 

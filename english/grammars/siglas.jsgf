@@ -2,11 +2,11 @@
 
 grammar siglas;
 
-public <siglas> = A L E M | 
-C A | F P | F S | F F T | 
-E C | E D | P D O O | S C D | 
-S O | D D S I | F R | I G | 
-I S E | M C | N P I | P L | 
-V C | P T C | T I C | S S | 
-C P D | S E | T R | I I | 
-T E | D B A;
+public <siglas> = L A M S | 
+C A | F P | F S | F P T | 
+C S | D S | O O P D | C D S | 
+O S | I S D D | B P N | G C | 
+S E | M C | N I P | L P | 
+C V | T S P | T I C | S S | 
+D P C | E S | N T | I C | 
+E T | A B D;

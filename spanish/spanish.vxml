@@ -6,16 +6,17 @@
 
 	<form id="intro">
 		<block>
-			<prompt bargein="false"> Bienvenido al servicio de informacion de examenes de la universidad</prompt>
-			<break time="200ms"/>
 			<prompt bargein="true"> Le ayudaremos a encontrar la fecha del examen que deseas.</prompt>
 			<break time="200ms"/>
 			<goto next="#menu"/>
 		</block>
 	</form>
 
-	<menu id="menu">
-		<prompt>Elija una opcion entre <enumerate/>.</prompt>
+	<menu id="menu" dtmf="true">
+		<enumerate>
+			Para buscar por <value expr="_prompt"/>, diga <value expr="_prompt"/>
+			o presione <value expr="_dtmf"/>.
+		</enumerate>
 		<choice next="asignatura.vxml">Asignatura</choice>
 		<choice next="siglas.vxml">Siglas</choice>
 		<choice next="fecha.vxml">Fecha</choice>
@@ -25,7 +26,7 @@
 		<field name="opcion">
 			<grammar src="grammars/salir.jsgf"/>
 			<prompt count="1"> Desea consultar algun otro examen o dejar una sugerencia? </prompt>
-			<prompt count="2"> Diga consultar otro examen o sugerencias </prompt>
+			<prompt count="2"> Diga consultar otro examen o dejar una sugerencia </prompt>
 			<prompt count="3"> Por favor, diga ayuda para saber las opciones disponibles. </prompt>
 			<filled>
 				<if cond="opcion=='consultar otro examen' &amp;&amp; opcion$.confidence &gt; 0.5">

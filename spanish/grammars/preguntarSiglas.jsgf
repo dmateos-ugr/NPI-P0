@@ -4,7 +4,7 @@ grammar preguntarSiglas;
 
 public <preguntarSiglas> = [<deseo>] [<preguntar>] <siglas> {this.siglas=$siglas};
 
-public <siglas> = A L E M | 
+<siglas> = A L E M | 
 C A | F P | F S | F F T | 
 E C | E D | P D O O | S C D | 
 S O | D D S I | F R | I G | 

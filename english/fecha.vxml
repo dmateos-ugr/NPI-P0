@@ -1,20 +1,20 @@
-<vxml version="2.1" xml:lang="en-US" application="root.vxml">
+<vxml version="2.1" xml:lang="en-US" application="../root.vxml">
 
 	<link event="help">
 		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
-	<script src="scripts/conversiones.js"/>
+	<script src="../scripts/conversiones.js"/>
 
 	<form id="comienzo">
-		<grammar src="preguntarFecha.jsgf" type="application/x-jsgf"/>
+		<grammar src="grammars/preguntarFecha.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
-			<prompt>On what can I help you?</prompt>
+			<prompt>What date do you want to search for?</prompt>
 			<help>
-				<throw event="help_fechas_mixta"/>
+				<throw event="help_fechas_mixta_ingles"/>
 			</help>
 			<nomatch count="1">
-				I didn't understand. <throw event="help_fechas_mixta"/>
+				I didn't understand. <throw event="help_fechas_mixta_ingles"/>
 			</nomatch>
 			<nomatch count="2">
 				I am sorry, I still don't understand.
@@ -24,14 +24,14 @@
 		</initial>
 
 		<field name="fecha">
-			<grammar src="fecha.jsgf"/>
+			<grammar src="grammars/fecha.jsgf"/>
 			<prompt count="1"> Say the date on which you want to know about the exams</prompt>
 			<prompt count="3"> Say help to get more information </prompt>
 			<help>
-				<throw event="help_fechas"/>
+				<throw event="help_fechas_ingles"/>
 			</help>
 			<noinput>
-				I am sorry, I didn't heard anything. Remember. <throw event="help_fechas"/>
+				I am sorry, I didn't heard anything. Remember. <throw event="help_fechas_ingles"/>
 			</noinput>
 			<nomatch>
 				I am sorry, I didn't understand untill the end. Can you repeat?
@@ -44,7 +44,7 @@
 		</field>
 
 		<field name="confirmar_fecha" cond="0.7 > fecha$.confidence">
-			<grammar src="confirmacion.jsgf"/>
+			<grammar src="grammars/confirmacion.jsgf"/>
 			<prompt>
 				The date that you're mentioning is <value expr="fecha"/>?
 			</prompt>
@@ -60,7 +60,7 @@
 		</field>
 
 		<block bargein="false">
-			<assign name="asignaturas" expr="fechaAnombre(fecha)"/>
+			<assign name="asignaturas" expr="dateToName(fecha)"/>
 			<prompt>
 				The day
 				<emphasis level="strong">
@@ -79,7 +79,7 @@
 				</prompt>
 			</if>
 			<break time="500ms"/>
-			<goto next="spanish.vxml#terminando"/>
+			<goto next="english.vxml#terminando"/>
 		</block>
 	</form>
 

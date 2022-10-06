@@ -9,7 +9,7 @@
 	<form id="comienzo">
 		<grammar src="grammars/preguntarAsign.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
-			<prompt>En que puedo ayudarle?</prompt>
+			<prompt>De qué asignatura quieres saber? </prompt>
 			<help>
 				<throw event="help_asignaturas_mixta"/>
 			</help>
@@ -48,7 +48,7 @@
 				La asignatura a la que se refiere es <value expr="asignatura"/>?
 			</prompt>
 			<filled>
-				<if cond="confirmar_asignatura=='si' &amp;&amp; confirmar_asignatura$.confidence &gt; 0.6">
+				<if cond="confirmar_asignatura=='si' &amp;&amp; confirmar_asignatura$.confidence &gt; 0.7">
 					Muy bien. Continuemos.
 				<else/>
 					De acuerdo. Le preguntare de nuevo.

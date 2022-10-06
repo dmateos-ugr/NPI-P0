@@ -2,4 +2,4 @@
 
 grammar ayuda;
 
-public <ayuda> = i don't understand | help | may I have some help | I need help | explain it to me | help me | what options are there;
+public <ayuda> = i don't understand | help | can I have some help | I need help | explain please| help me | what options are there;

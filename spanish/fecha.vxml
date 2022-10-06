@@ -9,7 +9,7 @@
 	<form id="comienzo">
 		<grammar src="grammars/preguntarFecha.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
-			<prompt>En que puedo ayudarle?</prompt>
+			<prompt>Digame sobre que fecha quieres saber?</prompt>
 			<help>
 				<throw event="help_fechas_mixta"/>
 			</help>

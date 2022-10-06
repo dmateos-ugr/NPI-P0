@@ -1,20 +1,20 @@
-<vxml version="2.1" xml:lang="en-US" application="root.vxml">
+<vxml version="2.1" xml:lang="en-US" application="../root.vxml">
 
 	<link event="help">
 		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
-	<script src="scripts/conversiones.js"/>
+	<script src="../scripts/conversiones.js"/>
 
 	<form id="comienzo">
 		<grammar src="grammars/preguntarAsign.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
-			<prompt>On what can I help you?</prompt>
+			<prompt>What course do you want to search for?</prompt>
 			<help>
-				<throw event="help_asignaturas_mixta"/>
+				<throw event="help_asignaturas_mixta_ingles"/>
 			</help>
 			<nomatch count="1">
-				I didn't understand. <throw event="help_asignaturas_mixta"/>
+				I didn't understand. <throw event="help_asignaturas_mixta_ingles"/>
 			</nomatch>
 			<nomatch count="2">
 				I am sorry, I still don't understand.
@@ -28,10 +28,10 @@
 			<prompt count="1"> Say the name of the course or help to more information</prompt>
 			<prompt count="3"> Say help to get more information </prompt>
 			<help>
-				<throw event="help_asignaturas"/>
+				<throw event="help_asignaturas_ingles"/>
 			</help>
-			<noinput>
-				I am sorry, I didn't heard anything. Remember. <throw event="help_asignaturas"/>
+			<noinput>S
+				I am sorry, I didn't heard anything. Remember. <throw event="help_asignaturas_ingles"/>
 			</noinput>
 			<nomatch>
 				I am sorry, I didn't understand untill the end. Can you repeat?
@@ -66,11 +66,11 @@
 				</emphasis>
 				is on
 				<emphasis level="strong">
-					<value expr="nombreAfecha(asignatura)"/>
+					<value expr="nameToDate(asignatura)"/>
 				</emphasis>
 			</prompt>
 			<break time="500ms"/>
-			<goto next="spanish.vxml#terminando"/>
+			<goto next="english.vxml#terminando"/>
 		</block>
 	</form>
 </vxml>

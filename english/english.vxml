@@ -6,45 +6,47 @@
 
 	<form id="intro">
 		<block>
-			<prompt bargein="false"> Welcome to the university's exams information service</prompt>
-			<break time="200ms"/>
 			<prompt bargein="true"> We'll help you find the date of the exam that you wish to know.</prompt>
 			<break time="200ms"/>
 			<goto next="#menu"/>
 		</block>
 	</form>
 
-	<menu id="menu">
+	<menu id="menu" dtmf="true">
+		<enumerate>
+			To search by <value expr="_prompt"/>, say <value expr="_prompt"/>
+			or press <value expr="_dtmf"/>.
+		</enumerate>
 		<prompt>Choose an option between <enumerate/>.</prompt>
-		<choice next="asignatura.vxml">Courses</choice>
-		<choice next="siglas.vxml">Acronym</choice>
-		<choice next="fecha.vxml">Date</choice>
+		<choice dtmf="1" next="asignatura.vxml">Courses</choice>
+		<choice dtmf="2" next="siglas.vxml">Acronym</choice>
+		<choice dtmf="3" next="fecha.vxml">Date</choice>
 	</menu>
 
 	<form id="terminando">
 		<field name="opcion">
 			<grammar src="grammars/salir.jsgf"/>
-			<prompt count="1"> Do you wish to know about any other exam or leave a suggestion? </prompt>
-			<prompt count="2"> Say "know about exam" or "suggestions" </prompt>
+			<prompt count="1"> Do you wish to check about any other exam or leave a suggestion? </prompt>
+			<prompt count="2"> Say check another exam or leave a suggestion </prompt>
 			<prompt count="3"> Please, say help to know the available options. </prompt>
 			<filled>
-				<if cond="opcion=='consultar otro examen' &amp;&amp; opcion$.confidence &gt; 0.5">
+				<if cond="opcion=='check another exam' &amp;&amp; opcion$.confidence &gt; 0.5">
 					<clear namelist="asignatura"/>
 					<goto next="#menu"/>
-				<elseif cond="opcion=='dejar una sugerencia' &amp;&amp; opcion$.confidence &gt; 0.5"/>
+				<elseif cond="opcion=='leave a suggestion' &amp;&amp; opcion$.confidence &gt; 0.5"/>
 					<goto next="#sugerencias"/>
-				<elseif cond="opcion=='no' || opcion=='salir'"/>
-					<throw event="exit_español"/>
+				<elseif cond="opcion=='no' || opcion=='exit'"/>
+					<throw event="exit_english"/>
 				<else/>
 					<prompt> I didn't undertstand. Can you repeat? </prompt>
 					<clear namelist="opcion"/>
 				</if>
 			</filled>
 			<help>
-				<throw event="help_salir"/>
+				<throw event="help_salir_ingles"/>
 			</help>
 			<noinput>
-				I didn't heard. Remember. <throw event="exit_español"/>
+				I didn't heard. Remember. <throw event="exit_english"/>
 			</noinput>
 		</field>
 	</form>
@@ -54,6 +56,6 @@
 			<prompt> Record your message after the beep. </prompt>
 			<noinput> I didn't heard anything, try again. </noinput>
 		</record>
-		<throw event="exit_español"/>
+		<throw event="exit_english"/>
 	</form>
 </vxml>

@@ -1,8 +1,10 @@
 #JSGF V1.0;
 
-grammar asign;
+grammar preguntarAsign;
 
-public <asign> = Linear Algebra and Mathematical Structures | 
+public <preguntarAsign> = [<deseo>] [<preguntar>] <asign> [exam] [has] {this.asignatura=$asign};
+
+<asign> = Linear Algebra and Mathematical Structures | 
 Calculus | Fundamentals of Programming | Fundamentals of Software | Fundamentals of Physics and Technology | 
 Computer Structures | Data Structures | Object-Oriented Programming and Design | Concurrent and Distributed Systems | 
 Operating Systems | Information Systems Design and Development | Basic Principles of Networks | Graphical Computing | 
@@ -10,3 +12,7 @@ Server Engineering | Models of Computation | New Interaction Paradigms | Languag
 Computer Vision | Technical and Scientific Programming | Theory of Information and Coding | System Simulation | 
 Data Proccesing Centres | Embedded Systems | Network Technologies | Industrial Computing | 
 Emerging Technologies | Agent-Based Development;
+
+<deseo> = I want to know | I would like to know | tell | tell me | say;
+<preguntar> = what day is the exam of | what is the date of | what date does the exam of |
+when is the exam of;

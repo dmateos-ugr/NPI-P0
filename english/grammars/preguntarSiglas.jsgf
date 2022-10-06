@@ -1,0 +1,18 @@
+#JSGF V1.0;
+
+grammar preguntarSiglas;
+
+public <preguntarSiglas> = [<deseo>] [<preguntar>] <siglas> {this.siglas=$siglas};
+
+<siglas> = L A M S | 
+C A | F P | F S | F P T | 
+C S | D S | O O P D | C D S | 
+O S | I S D D | B P N | G C | 
+S E | M C | N I P | L P | 
+C V | T S P | T I C | S S | 
+D P C | E S | N T | I C | 
+E T | A B D;
+
+<deseo> = I want to know | I would like to know | tell | tell me | say;
+<preguntar> = On what day is the exam of | What is the date of | On which date is the exam of |
+When is the exam of;

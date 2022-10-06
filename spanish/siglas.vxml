@@ -9,7 +9,7 @@
 	<form id="comienzo">
 		<grammar src="grammars/preguntarSiglas.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
-			<prompt>En que puedo ayudarle?</prompt>
+			<prompt>Sobre que siglas quieres saber?</prompt>
 			<help>
 				<throw event="help_siglas_mixta"/>
 			</help>
