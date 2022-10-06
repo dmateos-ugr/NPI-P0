@@ -12,7 +12,7 @@
     </catch>
 
     <catch event="help_salir_ingles">
-        <prompt> 
+        <prompt xml:lang="en-US">
             If you wish to do any other query say: check another exam.
             You can also leave a suggestion or exit the application.
         </prompt>
@@ -26,7 +26,7 @@ Calculo, Fundamentos de Programacion...
     </catch>
 
      <catch event="help_asignaturas_ingles">
-        <prompt>
+        <prompt xml:lang="en-US">
 Examples of courses are: Linear Algebra and Mathematical Structures
 Calculus, Fundamentals of Programming...
         </prompt>
@@ -39,7 +39,7 @@ Calculus, Fundamentals of Programming...
     </catch>
 
     <catch event="help_asignaturas_mixta_ingles">
-        <prompt>
+        <prompt xml:lang="en-US">
     Say for example: When is the exam of Linear Algebra and Mathematical Structures
         </prompt>
     </catch>
@@ -51,7 +51,7 @@ Calculus, Fundamentals of Programming...
     </catch>
 
     <catch event="help_siglas_ingles">
-        <prompt>
+        <prompt xml:lang="en-US">
             Say for example: CA, FP, FS, FPT.
         </prompt>
     </catch>
@@ -63,7 +63,7 @@ Calculus, Fundamentals of Programming...
     </catch>
 
     <catch event="help_siglas_mixta_ingles">
-        <prompt>
+        <prompt xml:lang="en-US">
            Say for example: when is the exam of O S
         </prompt>
     </catch>
@@ -75,7 +75,7 @@ Calculus, Fundamentals of Programming...
     </catch>
 
      <catch event="help_fechas_ingles">
-        <prompt>
+        <prompt xml:lang="en-US">
             Diga por ejemplo: 20 de enero.
         </prompt>
     </catch>
@@ -87,7 +87,7 @@ Calculus, Fundamentals of Programming...
     </catch>
 
     <catch event="help_fechas_mixta_ingles">
-        <prompt>
+        <prompt xml:lang="en-US">
             Say for example: what exams are there the 20 of january
         </prompt>
     </catch>

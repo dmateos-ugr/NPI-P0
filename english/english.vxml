@@ -1,4 +1,4 @@
-<vxml version="2.1" xml:lang="en-US" application="root.vxml">
+<vxml version="2.1" xml:lang="en-US" application="../root.vxml">
 
 	<link event="help">
 		<grammar src="grammars/ayuda.jsgf"/>
