@@ -9,15 +9,15 @@
 	<form id="comienzo">
 		<grammar src="preguntarSiglas.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
-			<prompt>En que puedo ayudarle?</prompt>
+			<prompt>On what can I help you?</prompt>
 			<help>
 				<throw event="help_siglas_mixta"/>
 			</help>
 			<nomatch count="1">
-				No le he entendido. <throw event="help_siglas_mixta"/>
+				I didn't understand. <throw event="help_siglas_mixta"/>
 			</nomatch>
 			<nomatch count="2">
-				Lo siento, sigo sin entender.
+				I am sorry, I still don't understand.
 				<assign name="inicial" expr="true"/>
 				<reprompt/>
 			</nomatch>
@@ -25,19 +25,19 @@
 
 		<field name="siglas">
 			<grammar src="siglas.jsgf"/>
-			<prompt count="1"> Diga las siglas de la asignatura o ayuda para más información</prompt>
-			<prompt count="3"> Diga ayuda para obtener mas informacion </prompt>
+			<prompt count="1"> Say the acronyms of the course or help to more information</prompt>
+			<prompt count="3"> Say help to get more information </prompt>
 			<help>
 				<throw event="help_siglas"/>
 			</help>
 			<noinput>
-				Lo siento, no escuché nada. Recuerde. <throw event="help_siglas"/>
+				I am sorry, I didn't heard anything. Remember. <throw event="help_siglas"/>
 			</noinput>
 			<nomatch>
-				Lo siento, no terminé de entender. Podrías repetir?
+				I am sorry, I didn't understand untill the end. Can you repeat?
 			</nomatch>
 			<nomatch count="2">
-				No entendí. Las asignaturas deben ser del primer cuatrimestre de informática.
+				I didn't understand. The courses should be from the first semester of computer science.
 				<reprompt/>
 			</nomatch>
 
@@ -46,13 +46,13 @@
 		<field name="confirmar_siglas" cond="0.7 > siglas$.confidence">
 			<grammar src="confirmacion.jsgf"/>
 			<prompt>
-				La asignatura a la que se refiere es <value expr="siglas"/>?
+				The course that you're mentioning is <value expr="siglas"/>?
 			</prompt>
 			<filled>
 				<if cond="confirmar_siglas=='si' &amp;&amp; confirmar_siglas$.confidence &gt; 0.6">
-					Muy bien. Continuemos.
+					Well done. Let's continue.
 				<else/>
-					De acuerdo. Le preguntare de nuevo.
+					Alright. I'll ask you again.
 					<clear namelist="siglas"/>
 					<goto next="#comienzo"/>
 				</if>
@@ -62,20 +62,21 @@
 		<block bargein="false">
 			<assign name="asignatura" expr="siglaAnombre(siglas)"/>
 			<prompt>
-				Has dicho las siglas
+				You've said the acronyms
 				<say-as interpret-as="letters">
 					<value expr="siglas"/>
 				</say-as>
-				, que se corresponden con la asignatura
+				, that corresponds with the
 				<emphasis level="strong">
 					<value expr="asignatura"/>
 				</emphasis>
+				course
 				.
-				El examen de
+				The
 				<emphasis level="strong">
 					<value expr="asignatura"/>
 				</emphasis>
-				es el
+				exam is on
 				<emphasis level="strong">
 					<value expr="nombreAfecha(asignatura)"/>
 				</emphasis>
