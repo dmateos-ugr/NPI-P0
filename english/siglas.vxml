@@ -1,7 +1,7 @@
-<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+<vxml version="2.1" xml:lang="en-US" application="root.vxml">
 
 	<link event="help">
-		<grammar src="ayuda.jsgf"/>
+		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
 	<script src="scripts/conversiones.js"/>
@@ -24,7 +24,7 @@
 		</initial>
 
 		<field name="siglas">
-			<grammar src="siglas.jsgf"/>
+			<grammar src="grammars/siglas.jsgf"/>
 			<prompt count="1"> Say the acronyms of the course or help to more information</prompt>
 			<prompt count="3"> Say help to get more information </prompt>
 			<help>
@@ -44,7 +44,7 @@
 		</field>
 
 		<field name="confirmar_siglas" cond="0.7 > siglas$.confidence">
-			<grammar src="confirmacion.jsgf"/>
+			<grammar src="grammars/confirmacion.jsgf"/>
 			<prompt>
 				The course that you're mentioning is <value expr="siglas"/>?
 			</prompt>

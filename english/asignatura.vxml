@@ -1,13 +1,13 @@
 <vxml version="2.1" xml:lang="en-US" application="root.vxml">
 
 	<link event="help">
-		<grammar src="ayuda.jsgf"/>
+		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
 	<script src="scripts/conversiones.js"/>
 
 	<form id="comienzo">
-		<grammar src="preguntarAsign.jsgf" type="application/x-jsgf"/>
+		<grammar src="grammars/preguntarAsign.jsgf" type="application/x-jsgf"/>
 		<initial name="inicial">
 			<prompt>On what can I help you?</prompt>
 			<help>
@@ -24,7 +24,7 @@
 		</initial>
 
 		<field name="asignatura">
-			<grammar src="asign.jsgf"/>
+			<grammar src="grammars/asign.jsgf"/>
 			<prompt count="1"> Say the name of the course or help to more information</prompt>
 			<prompt count="3"> Say help to get more information </prompt>
 			<help>
@@ -43,7 +43,7 @@
 		</field>
 
 		<field name="confirmar_asignatura" cond="0.7 > asignatura$.confidence">
-			<grammar src="confirmacion.jsgf"/>
+			<grammar src="grammars/confirmacion.jsgf"/>
 			<prompt>
 				The course that you're mentioning is <value expr="asignatura"/>?
 			</prompt>

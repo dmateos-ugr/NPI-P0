@@ -1,7 +1,7 @@
-<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+<vxml version="2.1" xml:lang="en-US" application="root.vxml">
 
 	<link event="help">
-		<grammar src="ayuda.jsgf"/>
+		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
 	<script src="scripts/conversiones.js"/>
