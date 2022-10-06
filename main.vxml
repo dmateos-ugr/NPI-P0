@@ -18,7 +18,7 @@
       </choice>
 
       <choice dtmf="2" next="english/english.vxml">
-        <grammar src="english/chooseLangEnglish.jsgf"/>
+        <grammar src="english/grammars/chooseLangEnglish.jsgf"/>
           Ingles
       </choice>
   </menu>
