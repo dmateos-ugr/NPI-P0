@@ -49,7 +49,7 @@
 				The course that you're mentioning is <value expr="siglas"/>?
 			</prompt>
 			<filled>
-				<if cond="confirmar_siglas=='si' &amp;&amp; confirmar_siglas$.confidence &gt; 0.6">
+				<if cond="confirmar_siglas=='yes' &amp;&amp; confirmar_siglas$.confidence &gt; 0.6">
 					Well done. Let's continue.
 				<else/>
 					Alright. I'll ask you again.

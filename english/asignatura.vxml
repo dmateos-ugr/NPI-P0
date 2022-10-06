@@ -30,7 +30,7 @@
 			<help>
 				<throw event="help_asignaturas_ingles"/>
 			</help>
-			<noinput>S
+			<noinput>
 				I am sorry, I didn't heard anything. Remember. <throw event="help_asignaturas_ingles"/>
 			</noinput>
 			<nomatch>
@@ -48,7 +48,7 @@
 				The course that you're mentioning is <value expr="asignatura"/>?
 			</prompt>
 			<filled>
-				<if cond="confirmar_asignatura=='si' &amp;&amp; confirmar_asignatura$.confidence &gt; 0.6">
+				<if cond="confirmar_asignatura=='yes' &amp;&amp; confirmar_asignatura$.confidence &gt; 0.6">
 					Well done. Let's continue.
 				<else/>
 					Alright. I'll ask you again.
