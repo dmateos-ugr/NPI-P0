@@ -2,4 +2,4 @@
 
 grammar adios;
 
-public <adios> = salir | hasta luego | no quiero | al final nada | me voy | adios | xao | tchau;
+public <adios> = salir | hasta luego | al final nada | adios | xao | tchau | terminar;

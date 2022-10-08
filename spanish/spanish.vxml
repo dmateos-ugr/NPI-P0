@@ -4,10 +4,6 @@
 		<grammar src="grammars/ayuda.jsgf"/>
 	</link>
 
-    <link event="exit_espanol">
-        <grammar src="grammars/adios.jsgf"/>
-    </link>
-
     <link event="cambiar">
         <grammar src="grammars/cambiar.jsgf"/>
     </link>
